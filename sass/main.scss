@@ -1,0 +1,196 @@
+// colors
+$bg-color: #2d2e5c;
+$shadow-lighten-color: #fefdf9;
+$shadow-dark-color: #b9c4fc;
+$shadow-light-color: #e6edfd;
+
+// mixins
+@mixin center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin pseudo($position: absolute, $content: "") {
+    content: $content;
+    position: $position;
+}
+
+@mixin breakpoint($point) {
+    @if $point==tablet {
+        @media (max-width: 1024px) and (min-width: 768px) {
+            @content ;
+        }
+    }
+    @else if $point==mobile {
+        @media (max-width: 480px) and (min-width: 320px) {
+            @content ;
+        }
+    }
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: $bg-color;
+  overflow: hidden;
+}
+
+.helmet-outline{
+  @include center;
+  width: 45vmin;
+  height: 53.5vmin;
+  background: $shadow-lighten-color;
+  border-top-left-radius: 40vmin;
+  border-top-right-radius: 40vmin;
+  border-bottom-left-radius: 5vmin;
+  border-bottom-right-radius: 5vmin;
+}
+
+.helmet{
+  @include center;
+  overflow: hidden;
+  width: 36.7vmin;
+  height: 45.5vmin;
+  z-index: 3;
+  background: $shadow-dark-color;
+  border: 2.3vmin solid $bg-color;
+  border-top-left-radius: 40vmin;
+  border-top-right-radius: 40vmin;
+  border-bottom-left-radius: 2.5vmin;
+  border-bottom-right-radius: 2.5vmin;
+
+  &:before{
+    @include pseudo;
+    left: 5.8vmin;
+    width: 36.7vmin;
+    height: 45.5vmin;
+    background: $shadow-light-color;
+    border-top-left-radius: 40vmin;
+    border-top-right-radius: 40vmin;
+    border-bottom-left-radius: 2.5vmin;
+    border-bottom-right-radius: 2.5vmin;
+  }  
+
+  &:after{
+    @include pseudo;
+    left: 9.7vmin;
+    width: 36.7vmin;
+    height: 45.5vmin;
+    background: $shadow-lighten-color;
+    border-top-left-radius: 40vmin;
+    border-top-right-radius: 40vmin;
+    border-bottom-left-radius: 2.5vmin;
+    border-bottom-right-radius: 2.5vmin;
+  }
+}
+
+.helmet-inner{
+  @include center;
+  overflow: hidden;
+  top: -2vmin;
+  width: 25vmin;
+  height: 18.6vmin;
+  background: $shadow-dark-color;
+  border-radius: 3.5vmin;
+  z-index: 4;
+
+  &:before{
+    @include pseudo;
+    width: 22.8vmin;
+    height: 18.6vmin;
+    background: $shadow-light-color;
+    border-radius: 3.5vmin;
+  }  
+
+  &:after{
+    @include pseudo;
+    top: -4.5vmin;
+    left: 3.5vmin;
+    width: 25vmin;
+    height: 25vmin;
+    background: transparent;
+    border: 2.2vmin solid $bg-color;
+    border-top-left-radius: 26vmin;
+  }
+}
+
+.helmet-inner-outline{
+  @include center;
+  z-index: 3;
+  top: -2vmin;
+  width: 29vmin;
+  height: 22.8vmin;
+  background: $bg-color;
+  border-radius: 5vmin;
+}
+
+.helmet-bottom-line{
+  @include center;
+  z-index: 3;
+  top: 38.2vmin;
+  width: 37vmin;
+  height: 2.2vmin;
+  background: $bg-color;
+
+  &:before{
+    @include pseudo;
+    top: 2.2vmin;
+    width: 37vmin;
+    height: 1.6vmin;
+    background: $shadow-light-color;
+  }  
+
+  &:after{
+    @include pseudo;
+    top: 3.2vmin;
+    width: 37vmin;
+    height: 1.5vmin;
+    background: $shadow-dark-color;
+  }
+}
+
+.ear{
+  @include center;
+  top: 1vmin;
+  left: -40vmin;
+  width: 13.2vmin;
+  height: 13.2vmin;
+  background: $shadow-lighten-color;
+  z-index: 2;
+  border-radius: 50%;
+
+  &:before{
+    @include pseudo;
+    top: 1.6vmin;
+    left: 1.7vmin;
+    width: 5.6vmin;
+    height: 5.6vmin;
+    border: 2.2vmin solid $bg-color;
+    border-radius: 50%;
+  }  
+
+  &:after{
+    @include pseudo;
+    top: 4.7vmin;
+    left: 4.6vmin;
+    width: 4vmin;
+    height: 4vmin;
+    background: $shadow-dark-color;
+    border-radius: 50%;
+  }
+}
+
+.ear-right{
+  left: 39.5vmin;
+
+  &:after{
+    left: 4.8vmin;
+  }
+}
